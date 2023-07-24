@@ -1,17 +1,17 @@
-import './App.css';
 import './styles/App.css';
+import { useState } from 'react';
+import PostsList from './components/PostsList';
+import MyButton from './components/UIcomponenst/button/MyButton';
 function App() {
+  const [posts, setposts] = useState([]);
   return (
     <div className="App">
-      <div className="post">
-        <div className="post__content">
-          <h2>1. JavaScript</h2>
-          <div>Javascript is a good.</div>
-        </div>
-        <div className="post__btns">
-          <button>Delete</button>
-        </div>
-      </div>
+      <form>
+        <input type="text" placeholder="Topic"></input>
+        <input type="text" placeholder="Description"></input>
+        <MyButton btnText={'Add post'} />
+      </form>
+      <PostsList posts={posts} title={'List of posts'}></PostsList>
     </div>
   );
 }
